@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Routes } from 'react-router-dom'
+import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
 import Doctor from './pages/Doctor'
 import MyProfile from './pages/MyProfile'
@@ -12,6 +12,9 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 
 const App = () => {
+
+  const location = useLocation()
+
   return (
     <div className=' sm:mx-[10%] font-sans'>
       <Navbar />
@@ -28,7 +31,8 @@ const App = () => {
         <Route path='/appointment/:doc' element={<Appointment />} />
         <Route path='/appointment' element={<Appointment />} />
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
+      {location.pathname !== '/login' && <Footer />}
     </div>
   )
 }

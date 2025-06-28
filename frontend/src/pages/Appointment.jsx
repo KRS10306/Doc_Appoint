@@ -17,7 +17,7 @@ const Appointment = () => {
     y = d.speciality;
   });
 
-  console.log(doctors.filter((d) => d.speciality === y));
+  let z = doctors.filter((d) => d.speciality === y && d._id !== doc);
 
   return (
     <div>
@@ -68,8 +68,7 @@ const Appointment = () => {
               <p className="text-center text-gray-700">Simply browse through our extensive lists of trusted doctors</p>
               <div className="flex mt-5 gap-10">
                 {/* grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 */}
-                {doctors
-                  .filter((d) => d.speciality === y)
+                {z
                   .map((doc, i) => (
                     <div
                       key={i}
