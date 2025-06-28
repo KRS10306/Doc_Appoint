@@ -97,7 +97,7 @@ const BookingSlot = () => {
       <div>
         <p className="text-lg font-medium text-gray-700">Booking Slots</p>
       </div>
-      <div className="flex gap-5">
+      <div className="flex flex-wrap gap-5">
         {DocSlots.map((d, i) => {
           clicked.setDate(clicked.getDate() + 1);
           return (
@@ -115,7 +115,7 @@ const BookingSlot = () => {
           );
         })}
       </div>
-      <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3">
         {/* {(today.getHours() >= 10)? (today.getHours() < 17)?  : :} */}
         {/* {DocTime.map((t, i) => (
           <span

@@ -25,7 +25,7 @@ const TopDoc = () => {
         }
         </div>
         <div className='w-full flex justify-center'>
-        {(doctors.length <= 10)? <></> : <button onClick={()=> navigate("/doctor")} className='text-black bg-gray-200 rounded-full p-2 px-20 mt-10 cursor-pointer'>more</button>}
+        {(doctors.length <= 10)? <></> : <button onClick={()=> {navigate("/doctor"); scroll(0,0)}} className='text-black bg-gray-200 rounded-full p-2 px-20 mt-10 cursor-pointer'>more</button>}
         </div>
     </div>
   )
