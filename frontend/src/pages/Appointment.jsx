@@ -50,8 +50,35 @@ const Appointment = () => {
               </div>
             </div>
           </div>
-          <div className="flex justify-end mt-10">
+          <div className="flex justify-start mt-10">
             <BookingSlot/>
+          </div>
+          <div>
+            <h1>Related Doctors</h1>
+        <br /><p>Simply browse through our extensive lists of doctors</p>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-5 mt-5">
+      {(speciality // if a speciality filter is selected …
+        ? doctors.filter((d) => d.speciality === speciality) // …show only matching doctors
+        : doctors
+      ) // otherwise show everyone
+        .map((doc, index) => (
+          <div
+            key={index}
+            className="border rounded-lg border-indigo-100 hover:-translate-y-2 duration-500"
+            onClick={()=> navigate(`/appointment/${doc._id}`)}
+          >
+            <img src={doc.image} alt="" className="bg-indigo-100" />
+
+            <div className="text-green-500 text-xs p-2 flex items-center gap-1">
+              <span className="bg-green-500 h-1.5 w-1.5 rounded-full" />{" "}
+              Available
+            </div>
+
+            <p className="font-semibold p-2">{doc.name}</p>
+            <p className="pl-2 pb-2 text-xs">{doc.speciality}</p>
+          </div>
+        ))}
+    </div>
           </div>
           </div>
         )
